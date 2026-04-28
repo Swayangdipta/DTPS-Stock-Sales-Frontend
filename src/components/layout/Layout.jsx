@@ -28,7 +28,7 @@ export default function Layout({ children }) {
                          border-gray-100 dark:border-gray-800 px-4 h-14
                          flex items-center justify-between shadow-sm">
         <span className="font-bold text-indigo-600 dark:text-indigo-400 text-lg">
-          StockSales
+          DTPS Stock Manager
         </span>
         <div className="flex items-center gap-2">
           <button onClick={() => setExportOpen(true)}
