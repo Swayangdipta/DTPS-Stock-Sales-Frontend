@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand:     #6366f1;
+  --color-brand-dark: #4f46e5;
+  --font-family-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+  }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.animate-slide-up       { animation: slide-up 0.25s ease-out; }
+.animate-slide-in-right { animation: slide-in-right 0.25s ease-out; }
+
+@media print {
+  body > *:not(#invoice-print) { display: none !important; }
+  #invoice-print {
+    position: fixed; inset: 0;
+    background: white; color: black;
+    z-index: 9999; overflow: auto; padding: 2rem;
+  }
+}
+
+/* Slide-in from right for desktop drawer */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.animate-slide-in-right { animation: slide-in-right 0.25s ease-out; }
+
+/* Invoice print styles */
+@media print {
+  body > *:not(#invoice-print) { display: none !important; }
+  #invoice-print {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 9999;
+    overflow: auto;
+    padding: 2rem;
+    color: black;
+  }
+}
